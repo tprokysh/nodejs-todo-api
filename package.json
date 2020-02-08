@@ -1,0 +1,73 @@
+{
+  "name": "nodejs-todo-api",
+  "version": "1.0.0",
+  "description": "api for todo-app",
+  "main": "runner.js",
+  "scripts": {
+    "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/app.js",
+    "dev": "nodemon runner.js",
+    "test": "npx jest",
+    "lint:js": "npx eslint ./src",
+    "lint-staged": "npx lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tprokysh/nodejs-todo-api.git"
+  },
+  "author": "tprokysh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tprokysh/nodejs-todo-api/issues"
+  },
+  "homepage": "https://github.com/tprokysh/nodejs-todo-api#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-node": "0.0.1-security",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "env": {
+      "node": true,
+      "jest": true
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "pre-commit": "lint-staged"
+}
