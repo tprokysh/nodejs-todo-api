@@ -1,0 +1,14 @@
+{
+    "development": {
+        "database": "db-dev"
+    },
+    "testing": {
+        "database": "db-test"
+    },
+    "staging": {
+        "database": "db-stag"
+    },
+    "production": {
+        "database": "db-prod"
+    }
+}

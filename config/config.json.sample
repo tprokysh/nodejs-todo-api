@@ -1,0 +1,5 @@
+{
+    "appName": "Application name",
+    "apiPrefix": "API prefix aka version",
+    "nodePort": 3000
+}
