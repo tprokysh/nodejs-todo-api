@@ -1,13 +1,12 @@
 import config from "../config/config.json";
-import db from "../config/db.json";
 import router from "./router";
+import sequelize from "./db";
 
 const app = require("express")();
-
-const environment = process.env.NODE_ENV || "development";
-
+// Config
 global.gConfig = config;
-global.gDB = db[environment];
+// Sequelize
+sequelize.sync({ force: true });
 
 app.use(global.gConfig.apiPrefix, router);
 
