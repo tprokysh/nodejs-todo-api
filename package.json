@@ -4,10 +4,10 @@
     "description": "api for todo-app",
     "main": "runner.js",
     "scripts": {
-        "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/app.js",
-        "dev": "nodemon runner.js",
+        "start": "nodemon --exec babel-node runner.js",
+        "dev": "nodemon --exec babel-node runner.js",
         "test": "npx jest",
-        "lint:js": "npx eslint ./src",
+        "lint:js": "npx eslint ./lib",
         "lint-staged": "npx lint-staged"
     },
     "repository": {
@@ -22,11 +22,10 @@
     "homepage": "https://github.com/tprokysh/nodejs-todo-api#readme",
     "dependencies": {
         "@babel/core": "^7.8.4",
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-node": "0.0.1-security",
-        "babel-preset-env": "^1.7.0",
-        "babel-register": "^6.26.0",
+        "@babel/node": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "@babel/register": "^7.8.3",
+        "@hapi/hapi": "^19.1.0",
         "express": "^4.17.1",
         "mysql2": "^2.1.0",
         "pre-commit": "^1.2.2",
@@ -49,10 +48,10 @@
     "babel": {
         "presets": [
             [
-                "env",
+                "@babel/preset-env",
                 {
                     "targets": {
-                        "node": "current"
+                        "node": true
                     }
                 }
             ]
